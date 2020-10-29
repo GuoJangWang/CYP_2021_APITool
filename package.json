@@ -3,6 +3,7 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "@arduino/arduino-iot-client": "1.3.4"
+    "@arduino/arduino-iot-client": "1.3.4",
+    ""
   }
 }
