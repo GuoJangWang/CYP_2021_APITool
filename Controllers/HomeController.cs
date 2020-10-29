@@ -22,8 +22,8 @@ namespace CYP_2021_APITool.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        
+        public IActionResult ArduinoDashboard()
         {
             return View();
         }
