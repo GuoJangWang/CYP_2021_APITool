@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
+using System.Data.SqlClient;
 
 namespace CYP_2021_APITool
 {
@@ -23,5 +24,11 @@ namespace CYP_2021_APITool
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
+        public void DB ()
+        {
+            
+        }
     }
 }
