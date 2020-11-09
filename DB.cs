@@ -12,33 +12,37 @@ namespace CYP_2021_APITool
 
         public static string DB_Connect()
         {
-            String tagDB_connect_str = @"Data Source=IOT-IIS\SQLEXPRESS;Initial Catalog=CYP_Intouch;Persist Security Info=True;User ID=Jason;Password=80138305jJ";
+            String tagDB_connect_str = @"Data Source=IOT-IIS\SQLEXPRESS;Initial Catalog=CYP_Intouch;Persist Security Info=True;User ID=John;Password=80138305jJ";
             SqlConnection SQLCC = new SqlConnection(tagDB_connect_str);
             SQLCC.Open();
 
             if (SQLCC.State == ConnectionState.Open)
             {
                 SqlTransaction t = SQLCC.BeginTransaction(); //BeginTransaction為SqlTransaction方法
-                SqlCommand cmd = new SqlCommand("INSERT INTO BarCode VALUES(20201105,'asdfg',true)", SQLCC, t);
+                SqlCommand cmd = new SqlCommand("INSERT INTO BarCode (intime,barcode,instatus) VALUES(20201109,'no001','true') COMMIT TRANSACTION", SQLCC, t);
+                SqlCommand cmd2 = new SqlCommand("DELETE FROM BarCode",SQLCC,t);
 
                 try
                 {
                     cmd.ExecuteNonQuery();
+                    Console.WriteLine("OK");
+                    SQLCC.Close();
                     return "true";
                 }
                 catch
                 {
+                    Console.WriteLine("fail");
+                    SQLCC.Close();
                     return "fail";
                 }
                 
             }
             else
             {
+                SQLCC.Close();
                 return "fail";
             }
 
-            
-       
 
         }
 
