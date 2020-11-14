@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.FileProviders;
 
 namespace CYP_2021_APITool
 {
@@ -24,6 +26,9 @@ namespace CYP_2021_APITool
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddControllers();
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,6 +37,11 @@ namespace CYP_2021_APITool
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseStaticFiles(new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
+                    RequestPath = "/" + "node_modules"
+                });
             }
             else
             {

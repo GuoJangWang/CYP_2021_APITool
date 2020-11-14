@@ -3,38 +3,14 @@
 *@
 @{
 }
-    <div class="text-center">
-        <h1 class="display-4">ArduinoIOTCloud_APIpage</h1>
 
-        <script type="text/javascript">
-            //var defaultClient = ArduinoIotClient.ApiClient.instance;
-            var api = new ArduinoIotClient.DevicesV2Api()
+<div class="text-center">
+    <h1 class="display-4">ArduinoIOTCloud_APIpage</h1>
+    
+    <script>
 
-            const { ArduinoIoTCloud } = require('arduino-iot-js');
-            const thingId = "47eee111-e326-4244-8af9-e3013be8b7da"
-            const variableName = "AutoPlusCount"
 
-            var deviceId = "13a8ad73-c207-433b-89f5-45d309d99c87"; // {String} The id of the device
-            var opts = {
-              'showDeleted': true // {Boolean} If true, shows the soft deleted properties
-            };
 
-            const options = {
-                clientId: "njCNbE7m6YEfTaWproQNK8ipV57A2ShR",
-                clientSecret: "Ev6K461zfEQ2DWMxG5Qw5GnKqv1jdewBT"+"B7R5FXJZDr0IxkdCzT3HK3xLKPab6TU",
-                onDisconnect: message => {
-                    console.error(message);
-                }
-            }
-
-            ArduinoIoTCloud.connect(options).then(() => {
-              console.log("Connected to Arduino IoT Cloud broker");
-              api.devicesV2GetProperties(deviceId, opts).then(devices => {
-                  console.log(devices);
-              }, error => {
-                  console.log(error)
-              });
-            });
-
-        </script>
-    </div>
+    </script>
+    
+</div>

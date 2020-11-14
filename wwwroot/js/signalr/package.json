@@ -25,6 +25,7 @@
     "build:uglify:webworker": "node ../common/node_modules/uglify-js/bin/uglifyjs --source-map \"url='signalr.min.js.map',content='./dist/webworker/signalr.js.map'\" --comments -o ./dist/webworker/signalr.min.js ./dist/webworker/signalr.js",
     "prepack": "node ../build/embed-version.js",
     "test": "echo \"Run 'yarn test' in the 'clients/ts' folder to test this package\" && exit 1"
+
   },
   "keywords": [
     "signalr",
