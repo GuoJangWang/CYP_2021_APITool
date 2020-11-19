@@ -15,8 +15,7 @@ namespace CYP_2021_APITool
     {
         public static void Main(string[] args)
         {
-            //DB.DB_Insert();
-            //DB.DB_Read_Web();
+            DB.DB_Connect();
             CreateHostBuilder(args).Build().Run();
         }
 
